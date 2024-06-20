@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Create Poll{% endblock %}
+
+{% block main %}
+    <h1>Question Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="question">Question:</label><br>
+        {% comment %} <textarea for="question" id="question" class ="form-control" row="3"></textarea> {% endcomment %}
+        {% render_field form.question class="form-control" row="3"%}
+
+        <label for="option1">Option 1:</label><br>
+        {% render_field form.option_1 class="form-control" %}
+        
+        <label for="option2">Option 2:</label><br>
+        {% render_field form.option_2 class="form-control" %}
+
+        <label for="option3">Option 3:</label><br>
+        {% render_field form.option_3 class="form-control" %}
+                
+        <label for="option4">Option 4:</label><br>
+        {% render_field form.option_4 class="form-control" %}
+
+
+        <div class="row">
+            <hr />
+            <div class="col-lg-4">
+                <button type="submit" class="btn btn-info">Submit</button>
+            </div>    </form>
+{% endblock %}
